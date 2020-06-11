@@ -164,3 +164,27 @@ class DoublyLinkedList:
             if current_item.value > highest:
                 highest = current_item.value
         return highest
+
+
+def middleNode(head):
+    """
+    :type head: ListNode
+    :rtype: ListNode
+    """
+    current_item = head
+    count = 1
+    while current_item.next:
+        current_item = current_item.next
+        count += 1
+
+    if count % 2 == 0:
+        count = (count / 2) + 1
+    else:
+        count = (count - 1) / 2
+
+    current_item = head.next
+
+    for i in range(int(count)):
+        current_item = current_item.next
+
+    return current_item
